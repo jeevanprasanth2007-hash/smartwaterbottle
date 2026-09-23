@@ -1,0 +1,3 @@
+import Card from './Card';import {Cpu} from 'lucide-react';import {ago} from '../utils/status';
+export default function DeviceCard({r,online,settings}){const rows=[['Device ID',settings.deviceId],['Device','Smart Water Bottle'],['ESP32',online?'Connected':'Offline'],['Water level',r?.water_level_status],['Turbidity',r?.turbidity_value],['Last seen',r?ago(r.created_at):'Never']];
+ return(<Card title="Device details" icon={Cpu}><dl className="grid grid-cols-2 gap-3">{rows.map(([k,v])=>(<div key={k}><dt className="text-xs opacity-60">{k}</dt><dd className="font-semibold">{v??'—'}</dd></div>))}</dl></Card>)}
